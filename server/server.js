@@ -2,6 +2,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
+import pdfRoutes from './routes/pdfRoutes.js'
 import roadmapRoutes from './routes/roadmapRoutes.js'
 
 dotenv.config()
@@ -12,6 +13,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/roadmaps', roadmapRoutes)
+app.use('/api/roadmaps', pdfRoutes)
 
 app.get('/health', (req, res) => {
   res.json({ ok: true })
